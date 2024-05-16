@@ -4,6 +4,11 @@
 
 [par_shapes](https://prideout.net/shapes) bindings for [Odin](https://odin-lang.org/)
 
+## Build (Linux):
+`cd src`   
+`make`
+
+
 ## Example:
 ```
 import ps "par_shapes"
