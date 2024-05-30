@@ -4,6 +4,8 @@
 
 [par_shapes](https://prideout.net/shapes) bindings for [Odin](https://odin-lang.org/)
 
+> par_shapes used under MIT License
+
 ## Build (Linux):
 `cd src`   
 `make`
