@@ -1,11 +1,9 @@
 package par_shapes
 
-
-// TODO: Window and Darwin (Mac)
 when ODIN_OS == .Linux {
-	foreign import lib "lib/linux/par_shapes.a"
+	foreign import lib "lib/linux/libpar_shapes.a"
 } else when ODIN_OS == .Darwin {
-	foreign import lib "lib/darwin/par_shapes.a"
+	foreign import lib "lib/darwin/libpar_shapes.a"
 } else when ODIN_OS == .Windows {
 	foreign import lib "lib/windows/par_shapes.lib"
 }
