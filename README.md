@@ -1,15 +1,50 @@
 # par_shapes bindings for Odin
 
-> WIP: Basic shape generation works, need to test more advances functions. See [TODO](##TODO)
-
 [par_shapes](https://prideout.net/shapes) bindings for [Odin](https://odin-lang.org/)
 
 > par_shapes used under MIT License
 
-## Build (Linux):
-`cd src`   
-`make`
+## Build:
 
+### Linux:
+
+Makefile
+```
+cd src
+make
+```
+
+Zig
+```
+zig build -Dtarget=x86_64-linux
+```
+
+### Windows:
+
+Batch
+```
+cd src
+./build.bat
+```
+
+Zig
+```
+zig build -Dtarget=x86_64-windows
+```
+
+### MacOS (Darwin):
+
+Make
+```
+cd src
+make
+```
+
+Zig
+```
+zig build -Dtarget=x86_64-macos
+zig build -Dtarget=arm64-macos
+```
 
 ## Example:
 ```
@@ -21,7 +56,7 @@ sphere_shape := ps.create_parametric_sphere(16, 16)
 // Defer freeing the shape mesh
 defer ps.free_mesh(sphere_shape)
 
-// par_shapes returns pointers to the data. Use slices to get the data as fixed arrays 
+// par_shapes returns pointers to the data. Use slices to get the data as fixed arrays
 
 sphere_pos := sphere_shape.points[0:sphere_shape.npoints * 3]
 sphere_texcoords := sphere_shape.tcoords[0:sphere_shape.npoints * 2]
@@ -30,8 +65,3 @@ sphere_normals := sphere_shape.normals[0:sphere_shape.npoints * 3]
 sphere_triangles := sphere_shape.triangles[0:sphere_shape.ntriangles * 3]
 
 ```
-
-## TODO:
-- [ ] Windows and Mac builds
-- [ ] Tests
-- [ ] Fix mapping of types
