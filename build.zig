@@ -4,13 +4,19 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const lib = b.addStaticLibrary(.{
-        .name = "par_shapes",
+    const lib_mod = b.createModule(.{
         .target = target,
         .optimize = optimize,
+        .link_libc = true,
+        .pic = true,
     });
 
-    lib.linkLibC();
+    const lib = b.addLibrary(.{
+        .name = "par_shapes",
+        .root_module = lib_mod,
+        .linkage = .static,
+    });
+
     lib.addIncludePath(b.path("src/par_shapes.h"));
     lib.addCSourceFiles(.{
         .files = &.{
