@@ -6,41 +6,20 @@
 
 ## Build:
 
+Require:
+- [Zig](https://ziglang.org/) to build
+
 ### Linux:
-
-Makefile
-```
-cd src
-make
-```
-
-Zig
 ```
 zig build -Dtarget=x86_64-linux
 ```
 
 ### Windows:
-
-Batch
-```
-cd src
-./build.bat
-```
-
-Zig
 ```
 zig build -Dtarget=x86_64-windows
 ```
 
 ### MacOS (Darwin):
-
-Make
-```
-cd src
-make
-```
-
-Zig
 ```
 zig build -Dtarget=x86_64-macos
 zig build -Dtarget=arm64-macos

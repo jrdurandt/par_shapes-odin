@@ -6,21 +6,6 @@ import "core:math"
 import "core:strings"
 import rl "vendor:raylib"
 
-create_shape_model :: proc(shape: ^par.par_shape_mesh_s) -> (model: rl.Model) {
-	mesh: rl.Mesh
-	mesh.vertexCount = shape.npoints
-	mesh.triangleCount = shape.ntriangles
-
-	mesh.vertices = shape.points
-	mesh.texcoords = shape.tcoords
-	mesh.normals = shape.normals
-	mesh.indices = shape.triangles
-	rl.UploadMesh(&mesh, false)
-	par.free_mesh(shape)
-
-	return rl.LoadModelFromMesh(mesh)
-}
-
 main :: proc() {
 	rl.InitWindow(800, 600, "Shapes")
 	defer rl.CloseWindow()
@@ -32,6 +17,21 @@ main :: proc() {
 		up         = {0, 1, 0},
 		fovy       = 45,
 		projection = .PERSPECTIVE,
+	}
+
+	create_shape_model :: proc(shape: ^par.par_shape_mesh_s) -> (model: rl.Model) {
+		mesh: rl.Mesh
+		mesh.vertexCount = shape.npoints
+		mesh.triangleCount = shape.ntriangles
+
+		mesh.vertices = shape.points
+		mesh.texcoords = shape.tcoords
+		mesh.normals = shape.normals
+		mesh.indices = shape.triangles
+		rl.UploadMesh(&mesh, false)
+		par.free_mesh(shape)
+
+		return rl.LoadModelFromMesh(mesh)
 	}
 
 	sphere_model := create_shape_model(par.create_parametric_sphere(8, 8))
