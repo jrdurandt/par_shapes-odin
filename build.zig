@@ -24,6 +24,7 @@ pub fn build(b: *std.Build) !void {
         },
         .flags = &.{
             "-fPIC",
+            "-fno-sanitize=undefined",
         },
     });
 
