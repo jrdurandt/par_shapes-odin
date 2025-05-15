@@ -1,14 +1,2 @@
-*.exe
-*.ll
-*.obj
 *.bin
-
-**.exp
-
-*.a
-*.o
-*.dll
-
-.zig-cache
-zig-out
-lib
+*.exe

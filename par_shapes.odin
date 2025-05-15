@@ -1,11 +1,15 @@
 package par_shapes
 
 when ODIN_OS == .Linux {
-	foreign import lib "libpar_shapes.a"
-} else when ODIN_OS == .Darwin {
-	foreign import lib "libpar_shapes.a"
+	foreign import lib "x86_64-linux/libpar_shapes.a"
 } else when ODIN_OS == .Windows {
-	foreign import lib "par_shapes.lib"
+	foreign import lib "x86_64-windows/par_shapes.lib"
+} else when ODIN_OS == .Darwin {
+	when ODIN_ARCH == .arm64 {
+		foreign import lib "aarch64-macos/libpar_shapes.a"
+	} else {
+		foreign import lib "x86_64-macos/libpar_shapes.a"
+	}
 }
 
 import c "core:c"

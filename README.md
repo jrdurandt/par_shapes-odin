@@ -4,28 +4,10 @@
 
 > par_shapes used under MIT License
 
-## Build:
-
-Require:
-- [Zig](https://ziglang.org/) to build
-
-### Linux:
-```
-zig build -Dtarget=x86_64-linux
-```
-
-### Windows:
-```
-zig build -Dtarget=x86_64-windows
-```
-
-### MacOS (Darwin):
-```
-zig build -Dtarget=x86_64-macos
-zig build -Dtarget=arm64-macos
-```
-
 ## Example:
+
+See samples/shapes.odin
+
 ```
 import ps "par_shapes"
 ...
