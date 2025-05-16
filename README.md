@@ -4,9 +4,13 @@
 
 > par_shapes used under MIT License
 
+## Build:
+Linux/macOS: `make -C src`
+Windows: `src/build.bat`
+
 ## Example:
 
-See samples/shapes.odin
+See samples/shapes.odin `odin run samples`
 
 ```
 import ps "par_shapes"

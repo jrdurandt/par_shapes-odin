@@ -1,16 +1,20 @@
 package par_shapes
 
-when ODIN_OS == .Linux {
-	foreign import lib "x86_64-linux/libpar_shapes.a"
-} else when ODIN_OS == .Windows {
-	foreign import lib "x86_64-windows/par_shapes.lib"
-} else when ODIN_OS == .Darwin {
-	when ODIN_ARCH == .arm64 {
-		foreign import lib "aarch64-macos/libpar_shapes.a"
-	} else {
-		foreign import lib "x86_64-macos/libpar_shapes.a"
-	}
+@(private)
+LIB :: (
+    "lib/par_shapes.lib" when ODIN_OS == .Windows
+    else "lib/par_shapes.a" when ODIN_OS == .Linux
+    else "lib/darwin/par_shapes.a" when ODIN_OS == .Darwin
+    else ""
+)
+
+when LIB != "" {
+    when !#exists(LIB) {
+        #panic("Could not find the compiled par_shapes library")
+    }
 }
+
+foreign import lib { LIB }
 
 import c "core:c"
 
