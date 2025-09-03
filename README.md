@@ -1,5 +1,7 @@
 # par_shapes bindings for Odin
 
+Archived: Moved to https://gitlab.com/jrdurandt/par_shapes-odin
+
 [par_shapes](https://prideout.net/shapes) bindings for [Odin](https://odin-lang.org/)
 
 > par_shapes used under MIT License
